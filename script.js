@@ -88,19 +88,59 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+var legalChars = [];
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+  var user = prompt("how many chars");
+  while (isNaN(user)) {
+    alert("Please input a number.");
+    user = prompt("how many chars");
+  }
 
+  var u = confirm("up");
+  var l = confirm("lower");
+  var n = confirm("numeric");
+  var s = confirm("special");
+
+  if (u) {
+    legalChars = legalChars.concat(upperCasedCharacters); 
+  } 
+  if (l) {
+    legalChars = legalChars.concat(lowerCasedCharacters); 
+  } 
+  if (n) {
+    legalChars = legalChars.concat(numericCharacters); 
+  } 
+  if (s) {
+    legalChars = legalChars.concat(specialCharacters); 
+  } 
+
+  return parseInt(user);
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  var randomElement = arr[Math.floor(Math.random() * arr.length)];
+  return randomElement;
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  var pass = "";
+  var op = getPasswordOptions();
 
+  while (legalChars == 0) {
+    alert("eeee");
+    op = getPasswordOptions();
+  }
+
+  for (let i = 0; i < op; i++) {
+    pass = pass + getRandom(legalChars);
+  }
+
+  legalChars = [];
+  return pass;
 }
 
 // Get references to the #generate element
