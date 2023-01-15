@@ -22,3 +22,4 @@ N/A
 * Answer the prompts
 
 ## Screenshot
+![Screenshot 2023-01-15 at 21-51-56 Password Generator](https://user-images.githubusercontent.com/117127128/212569169-41e22f47-ec89-4593-a7df-eb999cb9312b.png)
