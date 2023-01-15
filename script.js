@@ -92,16 +92,17 @@ var legalChars = [];
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  var user = prompt("how many chars");
-  while (isNaN(user)) {
-    alert("Please input a number.");
-    user = prompt("how many chars");
+  var user = prompt("How many characters should the password be? \nPlease input any number that is at least 10 but no larger than 64.");
+
+  while (isNaN(user) || user > 64) {
+    alert("Please input any number that is at least 10 but no larger than 64.");
+    user = prompt("How many characters should the password be? \nPlease input any number that is at least 10 but no larger than 64.");
   }
 
-  var u = confirm("up");
-  var l = confirm("lower");
-  var n = confirm("numeric");
-  var s = confirm("special");
+  var u = confirm("Are uppercase letters allowed?");
+  var l = confirm("Are lowercase letters allowed?");
+  var n = confirm("Are numeric characters allowed?");
+  var s = confirm("Are special characters such as $,@,%,&,and * allowed?");
 
   if (u) {
     legalChars = legalChars.concat(upperCasedCharacters); 
@@ -131,7 +132,7 @@ function generatePassword() {
   var op = getPasswordOptions();
 
   while (legalChars == 0) {
-    alert("eeee");
+    alert("Please choose at least one character type.");
     op = getPasswordOptions();
   }
 
