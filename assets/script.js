@@ -94,7 +94,7 @@ var legalChars = [];
 function getPasswordOptions() {
   var user = prompt("How many characters should the password be? \nPlease input any number that is at least 10 but no larger than 64.");
 
-  while (isNaN(user) || user > 64) {
+  while (isNaN(user) || user > 64 || user < 10) {
     alert("Please input any number that is at least 10 but no larger than 64.");
     user = prompt("How many characters should the password be? \nPlease input any number that is at least 10 but no larger than 64.");
   }
